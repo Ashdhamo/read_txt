@@ -1,8 +1,15 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import os
 
-file = open(os.path.expanduser("~/Desktop/pyt.readtxt.rtf"))
-print(file.read())
+file_path = os.path.expanduser("/Users/ashwini/PycharmProjects/read_txt/test.txt")
+output_file_path = os.path.expanduser("/Users/ashwini/PycharmProjects/read_txt/test2.txt")
+
+try:
+    with open(file_path, 'r') as dhamo:
+        with open(output_file_path, 'w') as output_file:
+            for line in dhamo:
+                output_file.write(line)
+
+except FileNotFoundError:
+    print(f"AshwiniError: File '{file_path}' not found.")
+except Exception as e:
+    print(f"superexception: {e}")
